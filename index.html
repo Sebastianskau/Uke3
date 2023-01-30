@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uke3 Adjektivhistorie</title>
+    <style>
+        div{
+            float: left;
+            margin: 10px;
+            
+        }
+
+        .storyBox{
+            border: 2px solid rgb(248, 5, 74);
+            padding: 30px;
+            font-size: 25px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif   ;
+        }
+
+        .startRow{
+            clear:left;
+        }
+
+        .choiceBoxes{
+            font-size: 20px;
+            background-color:  rgb(49, 178, 32) ;
+            border: 2px solid rgb(100, 237, 210);
+            border-radius: 150%;
+            padding: 25px;
+            width: 100px;
+            height: 25px;
+            text-align:center;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="storyBox" id="storyOutput">
+
+    </div>
+<div class="startRow choiceBoxes"  onclick="chooseFirstWord(this)">Rød</div> 
+<div class="choiceBoxes"  onclick="chooseFirstWord(this)">Blå</div>
+
+<div class="startRow choiceBoxes"  onclick="chooseSecondWord(this)">Hund</div> 
+<div class="choiceBoxes"  onclick="chooseSecondWord(this)">Katt</div>
+
+<div class="startRow choiceBoxes"  onclick="chooseThirdWord(this)">Spiste</div> 
+<div class="choiceBoxes"  onclick="chooseThirdWord(this)">Malte</div>
+
+<div class="startRow choiceBoxes"  onclick="chooseFourthWord(this)">Huset</div> 
+<div class="choiceBoxes"  onclick="chooseFourthWord(this)">Bolledeigen</div>
+
+    <script>
+    const output = document.getElementById("storyOutput");
+    let firstWord = "___";
+    let secondWord = "___";
+    let thirdWord = "___";
+    let fourthWord = "___";
+    buildStory();   
+    
+    function buildStory(){
+        output.innerHTML = `
+        Det var en gang en ${firstWord} ${secondWord} som ${thirdWord} hele ${fourthWord} -
+        og levde lykkelig i alle sine dager.
+        `;
+
+        // output.innerHTML = ' Det var en gang en ' + firstWord + ' ' + secondWord + 
+        //                    ' som ' + thirdWord + ' hele '+ fourthWord
+        //                   +' - og levde lykkelig i alle sine dager';
+
+    }
+    
+    function chooseFirstWord(choice){
+        firstWord = choice.innerHTML;
+        buildStory(); 
+    }    
+
+    function chooseSecondWord(choice){
+        secondWord = choice.innerHTML;
+        buildStory(); 
+    }
+
+    function chooseThirdWord(choice){
+        thirdWord = choice.innerHTML;
+        buildStory(); 
+    }
+
+    function chooseFourthWord(choice){
+        fourthWord = choice.innerHTML;
+        buildStory(); 
+    }
+
+  
+    </script>
+</body>
+</html>
